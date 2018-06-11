@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Chapter1___Arrays_and_Strings
 {
@@ -14,8 +15,8 @@ namespace Chapter1___Arrays_and_Strings
             //SolveNumber2_b();
             //SolveNumber3();
             //SolveNumber4();
-            SolveNumber5();
-
+            //SolveNumber5();
+            SolveNumber6();
         }
 
         // Implement an algorithm to determine if a string has all unique characters.
@@ -65,7 +66,7 @@ namespace Chapter1___Arrays_and_Strings
             string a = "abcdef";
             string b = "defabc";
 
-            if(IsPermutation(a, b))
+            if (IsPermutation(a, b))
                 Console.WriteLine("B is a permutation of A");
             else
                 Console.WriteLine("B is not a permutation of A");
@@ -126,7 +127,7 @@ namespace Chapter1___Arrays_and_Strings
                 {
                     result = stringToReplace + result;
                 }
-                else if(isPassedTail && input[i] != whiteSpace)
+                else if (isPassedTail && input[i] != whiteSpace)
                 {
                     result = input[i] + result;
                 }
@@ -165,7 +166,7 @@ namespace Chapter1___Arrays_and_Strings
                     charMap[c] += 1;
             }
 
-            return charMap.Values.Where(v => v % 2 != 0).Select(s => s).Count() == 1; 
+            return charMap.Values.Where(v => v % 2 != 0).Select(s => s).Count() == 1;
         }
 
         /* There are three types of edits that can be performed on strings: insert a character, remove a character,
@@ -190,7 +191,7 @@ namespace Chapter1___Arrays_and_Strings
         static bool IsEditable(string a, string b)
         {
             // If their length are same, simply check each char by using for loop
-            if(a.Length == b.Length)
+            if (a.Length == b.Length)
             {
                 return IsReplaceAble(a, b, 0);
             }
@@ -204,7 +205,7 @@ namespace Chapter1___Arrays_and_Strings
                     for (int i = 0; i < b.Length; i++)
                     {
                         // 1. Check if the current chars are different, then Remove or Insert one char
-                        if(a[i] != b[i])
+                        if (a[i] != b[i])
                         {
                             // 2. Check the rest substrings are replaceable
                             return IsReplaceAble(a.Substring(i + 1, a.Length - (i + 1)), b.Substring(i, b.Length - i), 1);
@@ -236,7 +237,7 @@ namespace Chapter1___Arrays_and_Strings
 
         }
 
-        static bool IsReplaceAble(string a, string b, int allowedDifference) 
+        static bool IsReplaceAble(string a, string b, int allowedDifference)
         {
             int differentChar = allowedDifference;
 
@@ -252,8 +253,63 @@ namespace Chapter1___Arrays_and_Strings
             return true;
         }
 
-        //static void SolveNumber6()
+        /// <summary>
+        /// String Compression: Implement a method to perform basic string compression using the counts of
+        /// repeated characters. For example, the string aabcccccaaa would become a2b1c5a3.
+        /// If the "compressed" string would not become smaller than the original string, your method should return
+        /// the original string. You can assume the string has only uppercase and lowercase letters (a-z).
+        /// </summary>
+        static void SolveNumber6()
+        {
+            string input = "aabcccccaaa";
+            var output = new StringBuilder();
+            int count = 0;
+            char previousChar = ' ';
 
-        //static void SolveNumber7()
+            // Read char of the input
+            // When this char is the first char, add it to stringBuilder and start counting
+            // a. If the current char is the same with the previous char, then count the number
+            // b. Otherwise, we should put the number of char to string builder and set count variable to 0
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (i == 0)
+                {
+                    output.Append(input[i]);
+                    count++;
+                    previousChar = input[i];
+                }
+                else
+                {
+                    if (previousChar == input[i])
+                    {
+                        count++;
+                        // When this is the last char, then we should put the count to the end of string builder
+                        if (i == input.Length - 1)
+                            output.Append(count);
+                    }
+                    else
+                    {
+                        output.Append(count);
+                        output.Append(input[i]);
+                        previousChar = input[i];
+                        count = 1;
+                    }
+                }
+            }
+
+            string result = output.ToString().Length > input.Length ? input : output.ToString();
+
+            Console.WriteLine($"Compressed string: {result}");
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Rotate Martix: Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes,
+        /// write a method to rotate the image by 90 degress. Can you do this in place?
+        /// </summary>
+        static void SolveNumber7()
+        {
+
+        }
     }
 }
