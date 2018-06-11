@@ -7,8 +7,8 @@
     <ProjectGuid>{B966CF31-11DD-4842-8AE1-BD01FAC42FE8}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Chapter3___Trees_and_Graphs</RootNamespace>
-    <AssemblyName>Chapter3 - Trees and Graphs</AssemblyName>
+    <RootNamespace>Chapter3___Stacks_and_Queues</RootNamespace>
+    <AssemblyName>Chapter3 - Stacks and Queues</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

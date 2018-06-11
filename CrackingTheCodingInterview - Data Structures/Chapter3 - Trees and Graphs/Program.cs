@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Chapter3___Trees_and_Graphs
+namespace Chapter3___Stacks_and_Queues
 {
     public class Program
     {
