@@ -309,7 +309,7 @@ namespace Chapter1___Arrays_and_Strings
         /// </summary>
         static void SolveNumber7()
         {
-
+            var image = new int[5][5];
         }
     }
 }
